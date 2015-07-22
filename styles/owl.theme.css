@@ -516,10 +516,21 @@ and (orientation : portrait) {
 	z-index:999999;
 }
 
+.homepage-slider-caption h1{
+	color:#FFFFFF;
+	font-family:'myriad pro', sans-serif;
+	font-size:28px;
+	text-transform:uppercase;
+	padding-left:30px;
+    padding-right:30px;
+	margin-bottom:0px;
+	line-height:30px;
+}
+
 .homepage-slider-caption h3{
 	color:#FFFFFF;
 	font-family:'Roboto', sans-serif;
-	font-size:16px;
+	font-size:22px;
 	text-transform:uppercase;
 	padding-left:30px;
     padding-right:30px;
