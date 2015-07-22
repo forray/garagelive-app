@@ -100,7 +100,8 @@
 		<icon src="icons/xxhdpi.png" gap:platform="android" gap:density="xxhdpi" />
 
 		
-
+		<gap:splash src="splash/splash.png" />
+		
 		<gap:splash src="splash/ios/Default-568h@2x~iphone.png" gap:platform="ios" width="320" height="480" />
 
 		<!-- iPhone and iPod touch -->
