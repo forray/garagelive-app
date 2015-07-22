@@ -1,12 +1,11 @@
- <?xml version="1.0" encoding="UTF-8" ?>
-
- 	<widget id="com.garagelive.app" version="0.0.1">
+<?xml version="1.0" encoding="UTF-8" ?>
+<widget id="com.garagelive.app" version="0.0.1">
 
         <name>GarageLive</name>
 
         <description>
 
-            We are the new breed of Music Creating & Distribution
+            We are the new breed of Music Creating and Distribution
 
         </description>
 
