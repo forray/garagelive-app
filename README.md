@@ -1,2 +1,0 @@
-# garagelive-app
-GarageLive App

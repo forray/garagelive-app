@@ -36,6 +36,7 @@
 		<preference name="android-targetSdkVersion" value="15" />
 		
 		<preference name="SplashScreen" value="splash" />
+		<preference name="SplashScreen" value="screen" />
 		
 
 		<!-- iPhone 6 / 6+ -->
@@ -101,7 +102,7 @@
 		<icon src="icons/xxhdpi.png" gap:platform="android" gap:density="xxhdpi" />
 
 		
-		<gap:splash src="splash/Default.png" />
+		<gap:splash src="splash/splash.png" />
 		
 		<gap:splash src="splash/Default.png" gap:platform="ios" width="320" height="480" />
 
