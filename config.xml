@@ -34,7 +34,8 @@
 		<preference name="android-minSdkVersion" value="10" />
 
 		<preference name="android-targetSdkVersion" value="15" />
-
+		
+		<preference name="SplashScreen" value="splash" />
 		
 
 		<!-- iPhone 6 / 6+ -->
