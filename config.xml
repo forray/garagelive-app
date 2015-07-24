@@ -40,6 +40,7 @@
     <preference name="phonegap-version"       	  value="3.7.0" />
 	<content src="index.html" />
 	<access origin="*" />
+	<preference name="BackgroundColor" 			  value="0x191b1c"/>
 
    
 
