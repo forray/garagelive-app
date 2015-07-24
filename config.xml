@@ -42,48 +42,14 @@
 	<access origin="*" />
 	<preference name="BackgroundColor" 			  value="0x191b1c"/>
 
-   <preference name="Fullscreen" value="true" />
-
-        <preference name="WebViewBounce" value="true" />
-
-		<preference name="BackgroundColor" value="0x2c2c2c"/>
-
-		<preference name="HideKeyboardFormAccessoryBar" value="true"/>
-
-		<preference name="phonegap-version" value="3.7.0" />
-
-		<preference name="target-device" value="universal" />
-
-		<preference name="android-minSdkVersion" value="10" />
-
-		<preference name="android-targetSdkVersion" value="15" />
-		
-
-		<preference name="SplashScreen" value="screen" />
-		<preference name="AutoHideSplashScreen" value="true" />  
-		<preference name="SplashScreenDelay" value="10000" /> 
-		<preference name="ShowSplashScreenSpinner" value="false" />  
-		<preference name="FadeSplashScreen" value="true" />  
-		<preference name="FadeSplashScreenDuration" value="1.0" />
+   
 
     <!-- Plugins -->
 
     <!-- Core plugins -->
-    <gap:plugin name="org.apache.cordova.battery-status" />
-    <gap:plugin name="org.apache.cordova.camera" />
-    <gap:plugin name="org.apache.cordova.media-capture" />
-    <gap:plugin name="org.apache.cordova.console" />
-    <gap:plugin name="org.apache.cordova.device" />
-    <gap:plugin name="org.apache.cordova.device-motion" />
-    <gap:plugin name="org.apache.cordova.device-orientation" />
-    <gap:plugin name="org.apache.cordova.dialogs" />
-    <gap:plugin name="org.apache.cordova.file" />
-    <gap:plugin name="org.apache.cordova.file-transfer" />
-    <gap:plugin name="org.apache.cordova.inappbrowser" />
-    <gap:plugin name="org.apache.cordova.media" />
-    <gap:plugin name="org.apache.cordova.network-information" />
+
     <gap:plugin name="org.apache.cordova.splashscreen" />
-    <gap:plugin name="org.apache.cordova.vibration" />
+
 
     <!-- Third party plugins -->
     <!-- A list of available plugins are available at https://build.phonegap.com/plugins -->
