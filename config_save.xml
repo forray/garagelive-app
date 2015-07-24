@@ -1,0 +1,184 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<widget id="com.garagelive.app" version="0.0.1">
+
+        <name>GarageLive</name>
+
+        <description>
+
+            We are the new breed of Music Creating and Distribution
+
+        </description>
+
+        <author email="tom@garagelive.com" href="http://garagelive.com">
+
+            GarageLive Team
+
+        </author>
+
+        <content src="index.html" />
+
+        <access origin="*" />
+
+        <preference name="Fullscreen" value="true" />
+
+        <preference name="WebViewBounce" value="true" />
+
+		<preference name="BackgroundColor" value="0x2c2c2c"/>
+
+		<preference name="HideKeyboardFormAccessoryBar" value="true"/>
+
+		<preference name="phonegap-version" value="3.7.0" />
+
+		<preference name="target-device" value="universal" />
+
+		<preference name="android-minSdkVersion" value="10" />
+
+		<preference name="android-targetSdkVersion" value="15" />
+		
+
+		<preference name="SplashScreen" value="screen" />
+		<preference name="AutoHideSplashScreen" value="false" />  
+		<preference name="SplashScreenDelay" value="10000" /> 
+		<preference name="ShowSplashScreenSpinner" value="false" />  
+		<preference name="FadeSplashScreen" value="true" />  
+		<preference name="FadeSplashScreenDuration" value="1.0" />
+		
+
+		<!-- iPhone 6 / 6+ -->
+
+		<icon src="icons/icon-60@3x.png" gap:platform="ios" width="180" height="180" />
+
+		
+
+		<!-- iPhone / iPod Touch  -->
+
+		<icon src="icons/icon-60.png" gap:platform="ios" width="60" height="60" />
+
+		<icon src="icons/icon-60@2x.png" gap:platform="ios" width="120" height="120" />
+
+		
+
+		<!-- iPad -->
+
+		<icon src="icons/icon-76.png" gap:platform="ios" width="76" height="76" />
+
+		<icon src="icons/icon-76@2x.png" gap:platform="ios" width="152" height="152" />
+
+		
+
+		<!-- Settings Icon -->
+
+		<icon src="icons/icon-small.png" gap:platform="ios" width="29" height="29" />
+
+		<icon src="icons/icon-small@2x.png" gap:platform="ios" width="58" height="58" />
+
+		
+
+		<!-- Spotlight Icon -->
+
+		<icon src="icons/icon-40.png" gap:platform="ios" width="40" height="40" />
+
+		<icon src="icons/icon-40@2x.png" gap:platform="ios" width="80" height="80" />
+
+		
+
+		
+
+		<icon src="icons/ldpi.png" gap:platform="android" gap:qualifier="ldpi" />
+
+		<icon src="icons/mdpi.png" gap:platform="android" gap:qualifier="mdpi" />
+
+		<icon src="icons/hdpi.png" gap:platform="android" gap:qualifier="hdpi" />
+
+		<icon src="icons/xhdpi.png" gap:platform="android" gap:qualifier="xhdpi" />
+
+		<icon src="icons/xxhdpi.png" gap:platform="android" gap:qualifier="xxhdpi" />
+
+		<icon src="icons/fr-xxhdpi.png" gap:platform="android" gap:qualifier="fr-xxhdpi" />
+
+		<icon src="icons/ldpi.png" gap:platform="android" gap:density="ldpi" />
+
+		<icon src="icons/mdpi.png" gap:platform="android" gap:density="mdpi" />
+
+		<icon src="icons/hdpi.png" gap:platform="android" gap:density="hdpi" />
+
+		<icon src="icons/xhdpi.png" gap:platform="android" gap:density="xhdpi" />
+
+		<icon src="icons/xxhdpi.png" gap:platform="android" gap:density="xxhdpi" />
+
+		
+		<gap:splash src="splash/splash.png" />
+		
+		<gap:splash src="splash/Default.png" gap:platform="ios" width="320" height="480" />
+
+		<!-- iPhone and iPod touch -->
+
+		<gap:splash src="splash/Default.png" gap:platform="ios" width="320" height="480" />
+
+		<gap:splash src="splash/Default@2x.png" gap:platform="ios" width="640" height="960" />
+
+		
+
+		<!-- iPhone 5 / iPod Touch (5th Generation) -->
+
+		<gap:splash src="splash/Default-568h@2x.png" gap:platform="ios" width="640" height="1136" />
+
+		
+
+		<!-- iPhone 6 -->
+
+		<gap:splash src="splash/Default-667h@2x.png" gap:platform="ios" width="750" height="1334" />
+
+		<gap:splash src="splash/Default-Portrait-736h@3x.png" gap:platform="ios" width="1242" height="2208" />
+
+		<gap:splash src="splash/Default-Landscape-736h@3x.png" gap:platform="ios" width="2208" height="1242" />
+
+		
+
+		<!-- iPad -->
+
+		<gap:splash src="splash/Default-Portrait.png" gap:platform="ios" width="768" height="1024" />
+
+		<gap:splash src="splash/Default-Landscape.png" gap:platform="ios" width="1024" height="768" />
+
+		
+
+		<!-- Retina iPad -->
+
+		<gap:splash src="splash/Default-Portrait@2x.png" gap:platform="ios" width="1536" height="2048" />
+
+		<gap:splash src="splash/Default-Landscape@2x.png" gap:platform="ios" width="2048" height="1536" />
+
+		
+
+		<gap:splash src="splash/ldpi.png" gap:platform="android" gap:qualifier="ldpi" />
+
+		<gap:splash src="splash/mdpi.png" gap:platform="android" gap:qualifier="mdpi" />
+
+		<gap:splash src="splash/hdpi.png" gap:platform="android" gap:qualifier="hdpi" />
+
+		<gap:splash src="splash/xhdpi.png" gap:platform="android" gap:qualifier="xhdpi" />
+
+		<gap:splash src="splash/fr-xhdpi.png" gap:platform="android" gap:qualifier="fr-xhdpi" />
+
+		<gap:splash src="splash/portrait-xxhdpi.png" gap:platform="android" gap:qualifier="port-xxhdpi" />
+
+		<gap:splash src="splash/landscape-xxhdpi.png" gap:platform="android" gap:qualifier="land-xxhdpi" />
+
+		<gap:splash src="splash/ldpi.png" gap:platform="android" gap:density="ldpi" />
+
+		<gap:splash src="splash/mdpi.png" gap:platform="android" gap:density="mdpi" />
+
+		<gap:splash src="splash/hdpi.png" gap:platform="android" gap:density="hdpi" />
+
+		<gap:splash src="splash/xhdpi.png" gap:platform="android" gap:density="xhdpi" />
+
+		<gap:splash src="splash/xxhdpi.png" gap:platform="android" gap:density="xxhdpi" />
+
+		
+
+    </widget>
+
+	
+
+	
