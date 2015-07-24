@@ -37,7 +37,7 @@
 		
 
 		<preference name="SplashScreen" value="screen" />
-		<preference name="AutoHideSplashScreen" value="false" />  
+		<preference name="AutoHideSplashScreen" value="true" />  
 		<preference name="SplashScreenDelay" value="10000" /> 
 		<preference name="ShowSplashScreenSpinner" value="false" />  
 		<preference name="FadeSplashScreen" value="true" />  
@@ -109,78 +109,22 @@
 		<icon src="icons/xxhdpi.png" gap:platform="android" gap:density="xxhdpi" />
 
 		
-		<gap:splash src="splash/splash.png" />
-		
-		<gap:splash src="splash/Default.png" gap:platform="ios" width="320" height="480" />
+		<!-- Define app splash screen for each platform. -->
+    <gap:splash src="res/screen/android/screen-ldpi-portrait.png"       gap:platform="android" gap:qualifier="port-ldpi" />
+    <gap:splash src="res/screen/android/screen-mdpi-portrait.png"       gap:platform="android" gap:qualifier="port-mdpi" />
+    <gap:splash src="res/screen/android/screen-hdpi-portrait.png"       gap:platform="android" gap:qualifier="port-hdpi" />
+    <gap:splash src="res/screen/android/screen-xhdpi-portrait.png"      gap:platform="android" gap:qualifier="port-xhdpi" />
+    <gap:splash src="res/screen/blackberry/screen-225.png"              gap:platform="blackberry" />
+    <gap:splash src="res/screen/Default.png"         					gap:platform="ios"     width="320" height="480" />
+    <gap:splash src="res/screen/Default@2x.png"      					gap:platform="ios"     width="640" height="960" />
+    <gap:splash src="res/screen/Default_1136@2x.png" 					gap:platform="ios"     width="640" height="1136" />
+    <gap:splash src="res/screen/Default-Portrait.png"           		gap:platform="ios"     width="768" height="1024" />
+    <gap:splash src="res/screen/Default-Landscape.png"          		gap:platform="ios"     width="1024" height="768" />
+    <gap:splash src="res/screen/windows-phone/screen-portrait.jpg"      gap:platform="winphone" />
 
-		<!-- iPhone and iPod touch -->
-
-		<gap:splash src="splash/Default.png" gap:platform="ios" width="320" height="480" />
-
-		<gap:splash src="splash/Default@2x.png" gap:platform="ios" width="640" height="960" />
-
-		
-
-		<!-- iPhone 5 / iPod Touch (5th Generation) -->
-
-		<gap:splash src="splash/Default-568h@2x.png" gap:platform="ios" width="640" height="1136" />
-
-		
-
-		<!-- iPhone 6 -->
-
-		<gap:splash src="splash/Default-667h@2x.png" gap:platform="ios" width="750" height="1334" />
-
-		<gap:splash src="splash/Default-Portrait-736h@3x.png" gap:platform="ios" width="1242" height="2208" />
-
-		<gap:splash src="splash/Default-Landscape-736h@3x.png" gap:platform="ios" width="2208" height="1242" />
-
-		
-
-		<!-- iPad -->
-
-		<gap:splash src="splash/Default-Portrait.png" gap:platform="ios" width="768" height="1024" />
-
-		<gap:splash src="splash/Default-Landscape.png" gap:platform="ios" width="1024" height="768" />
-
-		
-
-		<!-- Retina iPad -->
-
-		<gap:splash src="splash/Default-Portrait@2x.png" gap:platform="ios" width="1536" height="2048" />
-
-		<gap:splash src="splash/Default-Landscape@2x.png" gap:platform="ios" width="2048" height="1536" />
-
-		
-
-		<gap:splash src="splash/ldpi.png" gap:platform="android" gap:qualifier="ldpi" />
-
-		<gap:splash src="splash/mdpi.png" gap:platform="android" gap:qualifier="mdpi" />
-
-		<gap:splash src="splash/hdpi.png" gap:platform="android" gap:qualifier="hdpi" />
-
-		<gap:splash src="splash/xhdpi.png" gap:platform="android" gap:qualifier="xhdpi" />
-
-		<gap:splash src="splash/fr-xhdpi.png" gap:platform="android" gap:qualifier="fr-xhdpi" />
-
-		<gap:splash src="splash/portrait-xxhdpi.png" gap:platform="android" gap:qualifier="port-xxhdpi" />
-
-		<gap:splash src="splash/landscape-xxhdpi.png" gap:platform="android" gap:qualifier="land-xxhdpi" />
-
-		<gap:splash src="splash/ldpi.png" gap:platform="android" gap:density="ldpi" />
-
-		<gap:splash src="splash/mdpi.png" gap:platform="android" gap:density="mdpi" />
-
-		<gap:splash src="splash/hdpi.png" gap:platform="android" gap:density="hdpi" />
-
-		<gap:splash src="splash/xhdpi.png" gap:platform="android" gap:density="xhdpi" />
-
-		<gap:splash src="splash/xxhdpi.png" gap:platform="android" gap:density="xxhdpi" />
 
 		
 
     </widget>
-
-	
 
 	
