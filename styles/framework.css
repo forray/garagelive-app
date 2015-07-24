@@ -3027,7 +3027,7 @@ table tr:hover td{
 }
 
 .snap-drawer {
-	background-image:url(../images/misc/menu-bg.png);
+	background-color: #191b1c;
     background-size:100px 100px;
 }
 
