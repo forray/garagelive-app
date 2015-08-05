@@ -30,6 +30,61 @@
 <script type="text/javascript" src="scripts/framework.plugins.js"></script>
 <script type="text/javascript" src="scripts/custom.js"></script>
 
+<script type="text/javascript" charset="utf-8">
+
+    // Wait for device API libraries to load
+    //
+    document.addEventListener("deviceready", onDeviceReady, false);
+
+    // Record audio
+    //
+    function recordAudio() {
+        var src = "myrecording.amr";
+        var mediaRec = new Media(src, onSuccess, onError);
+
+        // Record audio
+        mediaRec.startRecord();
+
+        // Stop recording after 10 sec
+        var recTime = 0;
+        var recInterval = setInterval(function() {
+            recTime = recTime + 1;
+            setAudioPosition(recTime + " sec");
+            if (recTime >= 10) {
+                clearInterval(recInterval);
+                mediaRec.stopRecord();
+            }
+        }, 1000);
+    }
+
+    // device APIs are available
+    //
+    function onDeviceReady() {
+        recordAudio();
+    }
+
+    // onSuccess Callback
+    //
+    function onSuccess() {
+        console.log("recordAudio():Audio Success");
+    }
+
+    // onError Callback
+    //
+    function onError(error) {
+        alert('code: '    + error.code    + '\n' +
+              'message: ' + error.message + '\n');
+    }
+
+    // Set audio position
+    //
+    function setAudioPosition(position) {
+        document.getElementById('audio_position').innerHTML = position;
+    }
+
+    </script>
+
+
 </head>
 <body> 
 
@@ -105,7 +160,7 @@
                     </ul>
                 </li>                 
                
-            </ul>                        
+            </ul>                      
             <div class="sidebar-divider">
                 Copyright GarageLive Records 2015. <br>All rights reserved.
             </div>
@@ -120,13 +175,17 @@
         <div class="content">
             
             <div class="container no-bottom">
-                <h2>PAGE </h2>
+                <h2>RECORD MUSIC </h2>
                 <p>
-                   Stay tuned, we're coming soon!<br><br>
+                   So you want to record some sample to your library? <br>
+                   Just press the Rec button, and we start recording.<br><br><br>
                    
-                   <img src="images/404.jpg" alt="404"/>
-
-
+                   <input type="file" accept="audio/*;capture=microphone"><br><br><br>
+                   
+                    <p id="media">Recording audio...</p>
+    				<p id="audio_position"></p>
+                   
+                   
                 </p>
             </div>
             
