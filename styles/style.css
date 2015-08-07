@@ -1029,7 +1029,7 @@ body{
 }
 
 .landing-page{
-    background-image:url(../images/bg.png);
+    background-image:url(../images/bg.jpg);
     background-repeat:no-repeat;
     background-size:cover;
     height:100%;
@@ -1038,7 +1038,7 @@ body{
 }
 
 .snap-background{
-    background:url(../images/bg.png) top right repeat; background-attachment:fixed;;
+    background:url(../images/bg.jpg) top right repeat; background-attachment:fixed;;
 }
 
 .bg-pattern{

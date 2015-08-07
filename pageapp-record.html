@@ -33,53 +33,61 @@
 <script type="text/javascript" charset="utf-8" src="scripts/json2.js"></script>
     <script type="text/javascript" charset="utf-8">
 
-    // Called when capture operation is finished
+    // Wait for PhoneGap to load
     //
-    function captureSuccess(mediaFiles) {
-        var i, len;
-        for (i = 0, len = mediaFiles.length; i < len; i += 1) {
-            uploadFile(mediaFiles[i]);
-        }
+    document.addEventListener("deviceready", onDeviceReady, false);
+
+    // Record audio
+    // 
+    function recordAudio() {
+        var src = "myrecording.wav";
+        var mediaRec = new Media(src, onSuccess, onError);
+
+        // Record audio
+        mediaRec.startRecord();
+
+        // Stop recording after 10 sec
+        var recTime = 0;
+        var recInterval = setInterval(function() {
+            recTime = recTime + 1;
+            setAudioPosition(recTime + " sec");
+            if (recTime >= 3) {
+                clearInterval(recInterval);
+                mediaRec.stopRecord();
+                mediaRec.play();
+            }
+        }, 1000);
     }
 
-    // Called if something bad happens.
+    // PhoneGap is ready
     //
-    function captureError(error) {
-        var msg = 'An error occurred during capture: ' + error.code;
-        navigator.notification.alert(msg, null, 'Uh oh!');
+    function onDeviceReady() {
+        recordAudio();
     }
 
-    // A button will call this function
+    // onSuccess Callback
     //
-    function captureAudio() {
-        // Launch device audio recording application,
-        // allowing user to capture up to 2 audio clips
-        navigator.device.capture.captureAudio(captureSuccess, captureError, {limit: 2});
+    function onSuccess() {
+        console.log("recordAudio():Audio Success");
     }
 
-    // Upload files to server
-    function uploadFile(mediaFile) {
-        var ft = new FileTransfer(),
-            path = mediaFile.fullPath,
-            name = mediaFile.name;
-
-        ft.upload(path,
-            "http://my.domain.com/upload.php",
-            function(result) {
-                console.log('Upload success: ' + result.responseCode);
-                console.log(result.bytesSent + ' bytes sent');
-            },
-            function(error) {
-                console.log('Error uploading file ' + path + ': ' + error.code);
-            },
-            { fileName: name });
+    // onError Callback 
+    //
+    function onError(error) {
+        alert('code: '    + error.code    + '\n' + 
+              'message: ' + error.message + '\n');
     }
 
+    // Set audio position
+    // 
+    function setAudioPosition(position) {
+        document.getElementById('audio_position').innerHTML = position;
+    }
     </script>
 
 
 </head>
-<body> 
+<body ng-app="starter"> 
 
 <div id="preloader">
 	<div id="status">
@@ -173,26 +181,24 @@
                    So you want to record some sample to your library? <br>
                    Just press the Rec button, and we start recording.<br><br><br>
                    
-                   <button onclick="captureAudio();">Capture Audio</button> <br>
-                   
+                  <ion-pane>
+                  <ion-header-bar class="bar-stable">
+                    <h1 class="title">Ionic Blank Starter</h1>
+                  </ion-header-bar>
+                  <ion-content>
+                      <title>Device Properties Example</title>
+                      <!-- <script type="text/javascript" charset="utf-8" src="phonegap-1.4.1.js"></script> -->
+                      <p id="media">Recording audio...</p>
+                      <p id="audio_position"></p>
+                  </ion-content>
+                </ion-pane>
                    
                 </p>
             </div>
             
         </div>
         
-        <!-- Page Footer-->
-        <div class="footer">
-            <div class="footer-socials half-bottom">
-                <a href="https://www.facebook.com/garagelivecom" class="footer-facebook"><i class="fa fa-facebook"></i></a>
-                <a href="https://twitter.com/GarageLivecom" class="footer-twitter"><i class="fa fa-twitter"></i></a>
-                <a href="https://plus.google.com/u/0/b/100819344633942452434/100819344633942452434/about" class="footer-google"><i class="fa fa-google-plus"></i></a>
-                <a href="https://soundcloud.com/garagelive-records" class="footer-share show-share-bottom"><i class="fa fa-soundcloud"></i></a>
-                <a href="https://www.youtube.com/channel/UCWFS31k1imIoUH38dPDcOOw" class="footer-youtube show-share-bottom"><i class="fa fa-youtube"></i></a>
-                <!-- <a href="#" class="footer-up"><i class="fa fa-angle-up"></i></a>-->
-            </div>
-            <p class="center-text">Copyright GarageLive Records 2015. All rights reserved.</p>
-        </div>      
+         
  
     </div>
     
