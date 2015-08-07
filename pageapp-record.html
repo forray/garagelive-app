@@ -31,55 +31,55 @@
 <script type="text/javascript" src="scripts/custom.js"></script>
 <script type="text/javascript" charset="utf-8" src="scripts/cordova.js"></script>
 <script type="text/javascript" charset="utf-8" src="scripts/json2.js"></script>
-    <script type="text/javascript" charset="utf-8">
+<script type="text/javascript" charset="utf-8">
 
-    document.addEventListener("deviceready", function onDeviceReady() {
-    window.requestFileSystem(LocalFileSystem.PERSISTENT, 0, gotFS, function fail(){});
-}, false);
-
-var gotFS = function (fileSystem) {
-    fileSystem.root.getFile("blank.wav",
-        { create: true, exclusive: false }, //create if it does not exist
-        function success(entry) {
-            var src = entry.toURI();
-            console.log(src); //logs blank.wav's path starting with file://
-        },
-        function fail() {}
-    );
-};
-
-function recordAudio() {
-    var src = "BLANK WAV IN DOCUMENTS FOLDER";
-    var mediaRec = new Media(src, onSuccess, onError);
-
-    // Record audio
-    mediaRec.startRecord();
-
-    // Stop recording after 10 sec
-    var recTime = 0;
-    var recInterval = setInterval(function() {
-        recTime = recTime + 1;
-        if (recTime >= 10) {
-            clearInterval(recInterval);
-            mediaRec.stopRecord();
+    // Called when capture operation is finished
+    //
+    function captureSuccess(mediaFiles) {
+        var i, len;
+        for (i = 0, len = mediaFiles.length; i < len; i += 1) {
+            uploadFile(mediaFiles[i]);
         }
-    }, 1000);
-}
+    }
 
-function onSuccess() {
-    console.log("recordAudio():Audio Success");
-}
+    // Called if something bad happens.
+    //
+    function captureError(error) {
+        var msg = 'An error occurred during capture: ' + error.code;
+        navigator.notification.alert(msg, null, 'Uh oh!');
+    }
 
-// onError Callback 
-function onError(error) {
-    alert('code: '    + error.code    + '\n' + 
-          'message: ' + error.message + '\n');
-}
+    // A button will call this function
+    //
+    function captureAudio() {
+        // Launch device audio recording application,
+        // allowing user to capture up to 2 audio clips
+        navigator.device.capture.captureAudio(captureSuccess, captureError, {limit: 2});
+    }
+
+    // Upload files to server
+    function uploadFile(mediaFile) {
+        var ft = new FileTransfer(),
+            path = mediaFile.fullPath,
+            name = mediaFile.name;
+
+        ft.upload(path,
+            "http://my.domain.com/upload.php",
+            function(result) {
+                console.log('Upload success: ' + result.responseCode);
+                console.log(result.bytesSent + ' bytes sent');
+            },
+            function(error) {
+                console.log('Error uploading file ' + path + ': ' + error.code);
+            },
+            { fileName: name });
+    }
+
     </script>
 
 
 </head>
-<body ng-app="starter"> 
+<body> 
 
 <div id="preloader">
 	<div id="status">
@@ -173,7 +173,7 @@ function onError(error) {
                    So you want to record some sample to your library? <br>
                    Just press the Rec button, and we start recording.<br><br><br>
                    
-                  <a onclick="recordAudio()" href="javascript:void(0);">Record Audio Now</a> 
+                  <a onclick="captureAudio()" href="javascript:void(0);">Record Audio Now</a> 
                    
                 </p>
             </div>
