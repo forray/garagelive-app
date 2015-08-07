@@ -33,56 +33,48 @@
 <script type="text/javascript" charset="utf-8" src="scripts/json2.js"></script>
     <script type="text/javascript" charset="utf-8">
 
-    // Wait for PhoneGap to load
-    //
-    document.addEventListener("deviceready", onDeviceReady, false);
+    document.addEventListener("deviceready", function onDeviceReady() {
+    window.requestFileSystem(LocalFileSystem.PERSISTENT, 0, gotFS, function fail(){});
+}, false);
+
+var gotFS = function (fileSystem) {
+    fileSystem.root.getFile("blank.wav",
+        { create: true, exclusive: false }, //create if it does not exist
+        function success(entry) {
+            var src = entry.toURI();
+            console.log(src); //logs blank.wav's path starting with file://
+        },
+        function fail() {}
+    );
+};
+
+function recordAudio() {
+    var src = "BLANK WAV IN DOCUMENTS FOLDER";
+    var mediaRec = new Media(src, onSuccess, onError);
 
     // Record audio
-    // 
-    function recordAudio() {
-        var src = "myrecording.wav";
-        var mediaRec = new Media(src, onSuccess, onError);
+    mediaRec.startRecord();
 
-        // Record audio
-        mediaRec.startRecord();
+    // Stop recording after 10 sec
+    var recTime = 0;
+    var recInterval = setInterval(function() {
+        recTime = recTime + 1;
+        if (recTime >= 10) {
+            clearInterval(recInterval);
+            mediaRec.stopRecord();
+        }
+    }, 1000);
+}
 
-        // Stop recording after 10 sec
-        var recTime = 0;
-        var recInterval = setInterval(function() {
-            recTime = recTime + 1;
-            setAudioPosition(recTime + " sec");
-            if (recTime >= 3) {
-                clearInterval(recInterval);
-                mediaRec.stopRecord();
-                mediaRec.play();
-            }
-        }, 1000);
-    }
+function onSuccess() {
+    console.log("recordAudio():Audio Success");
+}
 
-    // PhoneGap is ready
-    //
-    function onDeviceReady() {
-        recordAudio();
-    }
-
-    // onSuccess Callback
-    //
-    function onSuccess() {
-        console.log("recordAudio():Audio Success");
-    }
-
-    // onError Callback 
-    //
-    function onError(error) {
-        alert('code: '    + error.code    + '\n' + 
-              'message: ' + error.message + '\n');
-    }
-
-    // Set audio position
-    // 
-    function setAudioPosition(position) {
-        document.getElementById('audio_position').innerHTML = position;
-    }
+// onError Callback 
+function onError(error) {
+    alert('code: '    + error.code    + '\n' + 
+          'message: ' + error.message + '\n');
+}
     </script>
 
 
@@ -176,22 +168,12 @@
         <div class="content">
             
             <div class="container no-bottom">
-                <h2>RECORD MUSIC LIVE</h2>
+                <h2>RECORD MUSIC</h2>
                 <p>
                    So you want to record some sample to your library? <br>
                    Just press the Rec button, and we start recording.<br><br><br>
                    
-                  <ion-pane>
-                  <ion-header-bar class="bar-stable">
-                    <h1 class="title">Ionic Blank Starter</h1>
-                  </ion-header-bar>
-                  <ion-content>
-                      <title>Device Properties Example</title>
-                      <!-- <script type="text/javascript" charset="utf-8" src="phonegap-1.4.1.js"></script> -->
-                      <p id="media">Recording audio ...</p>
-                      <p id="audio_position"></p>
-                  </ion-content>
-                </ion-pane>
+                  <a onclick="recordAudio()" href="javascript:void(0);">Record Audio Now</a> 
                    
                 </p>
             </div>
