@@ -41,8 +41,13 @@
 	<content src="index.html" />
 	<access origin="*" />
 	<preference name="BackgroundColor" 			  value="0x191b1c"/>
-
-   
+	
+   	<feature name="Media">
+    	<param name="ios-package" value="CDVSound" />
+	</feature>
+	<feature name="Media">
+    	<param name="android-package" value="org.apache.cordova.media.AudioHandler" />
+	</feature>
 
     <!-- Plugins -->
 
